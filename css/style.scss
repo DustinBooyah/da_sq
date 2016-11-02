@@ -1,0 +1,394 @@
+/* 
+
+THIS IS DUSTIN AGUILAR FOR LUCRAVALDE.
+
+FIRST THINGS FIRST. WE HAVE TO USE OUR FONT, MUSEO SANS, BY DL'ING IT FROM FONTSPRING AND INSTALLING IT MANUALLY. */
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2015 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      exljbris Font Foundry
+ * License URL: http://www.fontspring.com/licenses/exljbris/webfont
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'museo_sans500_italic';
+    src: url('MuseoSans_500_Italic-webfont.eot');
+    src: url('MuseoSans_500_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('MuseoSans_500_Italic-webfont.woff2') format('woff2'),
+         url('MuseoSans_500_Italic-webfont.woff') format('woff'),
+         url('MuseoSans_500_Italic-webfont.ttf') format('truetype'),
+         url('MuseoSans_500_Italic-webfont.svg#museo_sans500_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('MuseoSans_500-webfont.eot');
+    src: url('MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('MuseoSans_500-webfont.woff2') format('woff2'),
+         url('MuseoSans_500-webfont.woff') format('woff'),
+         url('MuseoSans_500-webfont.ttf') format('truetype'),
+         url('MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* NOW THAT THATS OUT OF THE WAY, LETS START THE FUN BY STYLING OUR BASIC ELEMENTS FOR HOTNESS.
+ *
+ * ( ͡°͜ʖ ͡°)
+ *
+ * WE'LL DO MOBILE STYLING FIRST AND USE MEDIA QUERIES TO BUMP UP THE FONT SIZES LATER.
+ */
+
+body {
+  background:#fff;
+  font-family:"museo_sans500", "Segoe UI", sans-serif;
+  font-size:16px;
+  font-size:80%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  position:relative;
+  letter-spacing:-.01em;
+  color:rgb(68,68,68);
+}
+
+header {
+  background:url(../img/bg_hero.png) top center no-repeat;
+  background-size:100% auto;
+}
+
+footer{
+  padding:10px 0;
+  color:#99CCFF;
+  background:#0057b4;
+  width:100%;
+}
+
+small {
+	font-size:85%;
+}
+
+a, 
+a:visited {
+  color:#0057b4;
+}
+a:hover {
+	color:#037DFF;
+}
+
+h1 {
+  font-size:60px;
+  font-weight:500;
+  letter-spacing:-0.03em;
+  line-height:0.75;
+}
+h2 {
+  font-size:48px;
+  font-weight:500;
+  letter-spacing:-0.03em;
+  line-height:0.75;
+}
+h3 {
+  font-size:36px;
+  letter-spacing:-0.02em;
+  font-weight:500;
+  line-height:normal;
+}
+h4, h5 {
+  font-size:24px;
+  letter-spacing:-0.02em;
+  font-weight:500;
+  line-height:normal;
+}
+h6 {
+  font-size:18px;
+  letter-spacing:-0.02em;
+  font-weight:500;
+  line-height:normal;
+}
+
+img { 
+  display: block;
+  max-width: 100%;
+  margin:0 auto
+}
+
+/* BUTTONS */
+button,
+button:visited,
+.button,
+.button:visited,
+input[type=submit],
+input[type=submit]:visited {
+  max-width: 100%;
+  max-height: 100%;
+  cursor:pointer;
+  border:none;
+  background-color:rgb(70,140,0);
+  color:white;
+  font-size:24px;
+  padding:1em 3em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  margin:1em auto 1em;
+
+  .btn-small{
+    background-color:#0057b4;
+    font-size:18px;
+    padding:0.75em 1.5em;
+    margin:1em auto;
+  }
+}
+
+button:hover,
+.button:hover{
+  background-color:rgb(89,178,0);
+}
+
+button.cta ,
+.button .cta,
+input[type=submit].cta,
+input[type=button].cta {
+    background-image: url(../img/cta_bg.png);
+    background-position:bottom left;
+    background-repeat:no-repeat;
+  }
+
+/* FLEXBOX */
+.site {
+  display:flex;
+  min-height:100vh;
+  flex-direction:column
+}
+.site-content {
+  flex:1
+}
+
+/*
+ * 1. `height` is needed for IE10-11 for this bug
+ *    http://bit.ly/16b1Xhx
+ * 2. Other browser use `min-height`.
+ */
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  height: 24em; /* 1 */
+  justify-content: center;
+}
+
+@supports not (-ms-flex: 1) {
+  .Aligner {
+    height: auto; /* 2 */
+    min-height: 24em; /* 2 */
+  }
+}
+.Aligner-item {
+  flex: 1;
+}
+.Aligner-item--top {
+  align-self: flex-start;
+}
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+.Aligner-item--fixed {
+  flex: none;
+  max-width: 80%;
+  padding:2%;
+}
+
+/* POSITIONING CLASSES */
+.right {
+  float:right;
+}
+.left {
+  float:left;
+}
+.center {
+  margin:0 auto;
+}
+.text-center {
+  margin:0 auto;
+  text-align:center;
+}
+.text-right {
+	text-align:right;
+}
+
+/* TEXT COLORS */
+.blue {
+  color:#2193E7;
+}
+.blue_lt{
+  color:rgba(215, 233, 255, 0.6);
+}
+.orange {
+  color:#DE4524;
+}
+.white {
+	  color:#eee;
+}
+.white_dk {
+	color:#ccc;
+}
+.grey_dk {
+  color:#666;
+}
+
+/* LANDING PAGE */
+.bg-blue {
+  background-color:rgba(0,87,180,0.8);
+}
+
+.logo_hero {
+  padding-bottom:0;
+  margin-bottom:0;
+  max-height:100%
+}
+.padding{
+  padding:2%;
+}
+
+/* FORMS */
+form {
+  position:relative;
+}
+
+label {
+  font-size:100%;
+  display:block;
+}
+
+::-webkit-input-placeholder {
+   color: #888;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #888;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #888;  
+}
+
+:-ms-input-placeholder {  
+   color: #888;  
+}
+
+input[type=text], 
+input[type=email], 
+input[type=tel] {
+  display:inline-block;
+  font-family:inherit;
+  font-size: 95%;
+  line-height: 1.5;
+  color:#3c3c3c;
+  border-radius: 0;
+  border:1px solid rgba(225,225,225,0);
+  border-bottom: 1px solid rgba(225,225,225,1);
+  padding: 10px;
+  margin:3px auto;
+  max-width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:focus{
+  background: #fff;
+  box-shadow: 0;
+  border: 1px solid #3498db;
+  }
+}
+/* THESE SPECIFIC CLASSES ARE FOR THE LITTLE ICONS IN THE INPUT FIELDS.*/
+input.namefirst,
+input.namefirst:focus{
+  background: url(../img/name.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+  padding-left: 54px;
+}
+input.namelast,
+input.namelast:focus{
+  padding-left: 54px;
+}
+
+input.email,
+input.email:focus {
+  background: url(../img/email.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+  padding-left: 54px;
+  width:100%;
+}
+input.phone,
+input.phone:focus {
+  background: url(../img/phone.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+  padding-left: 54px;
+  width:100%;
+}
+
+/* LISTS */
+ul, li {
+ padding:0;
+ list-style-type:none;
+}
+ 
+.bullet{
+      list-style-type: disc;
+  }
+
+@media (min-width: 0em and max-width:48em) {
+body {
+	  font-size:80%;
+}
+}
+
+/* MEDIA QUERY -- MEDIUM-LARGE */
+@media (min-width: 48em) {
+body {
+	font-size:100%;
+}
+.Aligner-item--fixed {
+  flex: none;
+  max-width: 50%;
+  padding:3%;
+}
+h1 {
+  font-size:80px;
+  letter-spacing:-3pt;
+  line-height:0.75;
+}
+h3 {
+  font-size:44px;
+  letter-spacing:-2pt;
+}
+
+}
